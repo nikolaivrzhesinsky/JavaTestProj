@@ -49,17 +49,17 @@ public class FindNum {
                     low = middle + 1;
                 }
                 else if(K_Array[i]==A[middle]){
-                    res[i]=middle;
+                    res[i]=A.length-middle-1;
                     flag=false;
                     break;
                 }
             }
             if(flag){
                 if(K_Array[i]>A[low]){
-                    res[i]=low+1;
+                    res[i]=A.length-low-1;
                 }
                 else{
-                    res[i]=low;
+                    res[i]=A.length-low+1;
                 }
             }
         }
