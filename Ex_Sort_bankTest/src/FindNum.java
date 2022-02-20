@@ -39,6 +39,7 @@ public class FindNum {
             int low=0;
             int high=A.length-1;
             boolean flag=true;
+
             while (low<=high) {
                 int middle = low + (high - low) / 2;
 
@@ -50,17 +51,17 @@ public class FindNum {
                 }
                 else if(K_Array[i]==A[middle]){
                     res[i]=A.length-middle-1;
+                    for(int j=middle+1;j<A.length;j++){
+                        if(A[j]== K_Array[i]) {
+                            res[i]--;
+                        }
+                    }
                     flag=false;
                     break;
                 }
             }
-            if(flag){
-                if(K_Array[i]>A[low]){
-                    res[i]=A.length-low-1;
-                }
-                else{
-                    res[i]=A.length-low+1;
-                }
+            if(flag) {
+                res[i] = A.length - low;
             }
         }
         return res;
