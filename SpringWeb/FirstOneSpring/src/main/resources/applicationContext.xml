@@ -12,4 +12,8 @@
     <constructor-arg value="Neil"/>
   </bean>
 
+  <bean id="musicBean"
+        class="com.objects.ClassicMusic">
+  </bean>
+
 </beans>
