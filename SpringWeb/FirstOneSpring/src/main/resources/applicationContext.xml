@@ -15,31 +15,38 @@
   </bean>
 
   <bean id="musicBean1"
-        class="com.objects.ClassicMusic">
+        class="com.objects.ClassicMusic"
+        init-method="doMyInit"
+        destroy-method="doMyDestroy"
+        factory-method="getInstance">
   </bean>
 
   <bean id="musicBean2"
-        class="com.objects.ClassicMusic">
+        class="com.objects.ClassicMusic"
+        scope="prototype"
+        init-method="doMyInit"
+        destroy-method="doMyDestroy">
+
+  </bean>
+
+  <bean id="musicPlayer"
+        class="com.objects.MusicPlayer">
+    <property name="music" ref="musicBean2"/>
+    <property name="name" value="${musicPlayer.name}"/>
+    <property name="volume" value="${musicPlayer.volume}"/>
   </bean>
 
 <!--  <bean id="musicPlayer"-->
 <!--        class="com.objects.MusicPlayer">-->
-<!--    <property name="music" ref="musicBean"/>-->
+<!--    <property name="musicList">-->
+<!--      <list>-->
+<!--        <ref bean="musicBean1"/>-->
+<!--        <ref bean="musicBean2"/>-->
+<!--      </list>-->
+<!--    </property>-->
+
 <!--    <property name="name" value="${musicPlayer.name}"/>-->
 <!--    <property name="volume" value="${musicPlayer.volume}"/>-->
 <!--  </bean>-->
-
-  <bean id="musicPlayer"
-        class="com.objects.MusicPlayer">
-    <property name="musicList">
-      <list>
-        <ref bean="musicBean1"/>
-        <ref bean="musicBean2"/>
-      </list>
-    </property>
-
-    <property name="name" value="${musicPlayer.name}"/>
-    <property name="volume" value="${musicPlayer.volume}"/>
-  </bean>
 
 </beans>
