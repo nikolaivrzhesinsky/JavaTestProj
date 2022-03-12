@@ -1,45 +1,35 @@
 package com.objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 @Component
 public class MusicPlayer {
    // private List<Music>musicList= new ArrayList<Music>();
-    private ClassicMusic classicMusic;
-    private String name;
-    private int volume;
+    private Music music1;
+    private Music music2;
 
     @Autowired
-    public MusicPlayer(ClassicMusic classicMusic){
-        this.classicMusic=classicMusic;
+    public MusicPlayer(@Qualifier("classicMusic") Music music1,@Qualifier("rockMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
     }
 
-//    public String getName() {
-//        return name;
-//    }
-//
-//    public void setName(String name) {
-//        this.name = name;
-//    }
-//
-//    public int getVolume() {
-//        return volume;
-//    }
-//
-//    public void setVolume(int volume) {
-//        this.volume = volume;
-//    }
-//
-//
-//    public void setMusic(Music music) {
-//        this.music = music;
-//    }
+    public String playMusic(MusicGenre genre){
+        Random random = new Random();
+        int randomNumber = random.nextInt(3);
 
-    public String playOneMusic(){
-       return ("Playing "+ classicMusic.getSong());
+        if(genre==MusicGenre.CLASSIC){
+            return music1.getSong().get(randomNumber);
+        }
+        else{
+            return music2.getSong().get(randomNumber);
+        }
     }
 
 }

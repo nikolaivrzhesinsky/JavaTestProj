@@ -2,8 +2,18 @@ package com.objects;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component()
 public class ClassicMusic implements Music{
+
+    private List<String> classicList= new ArrayList<>();
+    {
+        classicList.add("Богемская рапсодия");
+        classicList.add("Two girls, one cup");
+        classicList.add("Well done");
+    }
 
     private ClassicMusic(){}
 
@@ -11,14 +21,9 @@ public class ClassicMusic implements Music{
         return new ClassicMusic();
     }
 
-    public void doMyInit(){
-        System.out.println("Doing initialization");
-    }
-    public void doMyDestroy(){
-        System.out.println("Was destroy");
-    }
+    @Override
+    public List<String> getSong() {
 
-    public String getSong() {
-        return "Времена года";
+        return classicList;
     }
 }
