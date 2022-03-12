@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="416ac8b3-02ad-4a61-bbdb-8f694812406c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/objects/MusicGenre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/ClassicMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/ClassicMusic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/Music.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/MusicPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/RockMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/RockMusic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/TestBean.java" beforeDir="false" />
-    </list>
+    <list default="true" id="416ac8b3-02ad-4a61-bbdb-8f694812406c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +83,7 @@
       <workItem from="1646944296982" duration="1702000" />
       <workItem from="1646949274549" duration="1612000" />
       <workItem from="1647001708805" duration="3994000" />
-      <workItem from="1647110221372" duration="3139000" />
+      <workItem from="1647110221372" duration="3410000" />
     </task>
     <task id="LOCAL-00001" summary="работа с анотациями p1.">
       <created>1646950873457</created>
@@ -108,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647008858583</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="анотации, реализация рандомного воспроизведения музыки">
+      <created>1647113636817</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647113636817</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +115,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="работа с анотациями p1." />
     <MESSAGE value="работа с анотациями p2." />
-    <option name="LAST_COMMIT_MESSAGE" value="работа с анотациями p2." />
+    <MESSAGE value="анотации, реализация рандомного воспроизведения музыки" />
+    <option name="LAST_COMMIT_MESSAGE" value="анотации, реализация рандомного воспроизведения музыки" />
   </component>
 </project>
