@@ -2,6 +2,7 @@ package com.objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -10,9 +11,22 @@ import java.util.Random;
 
 @Component
 public class MusicPlayer {
-   // private List<Music>musicList= new ArrayList<Music>();
+
     private Music music1;
     private Music music2;
+
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getVolume() {
+        return volume;
+    }
 
     @Autowired
     public MusicPlayer(@Qualifier("classicMusic") Music music1,@Qualifier("rockMusic") Music music2) {

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 @Component()
 public class ClassicMusic implements Music{
@@ -16,6 +18,15 @@ public class ClassicMusic implements Music{
     }
 
     private ClassicMusic(){}
+
+    @PostConstruct
+    public  void doInitialized(){
+        System.out.println("Classical music was initialized successfully");
+    }
+    @PreDestroy
+    public void doDestroy(){
+        System.out.println("Classical music was destroy successfully");
+    }
 
     public static ClassicMusic getInstance(){
         return new ClassicMusic();

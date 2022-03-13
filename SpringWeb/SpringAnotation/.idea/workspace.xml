@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="416ac8b3-02ad-4a61-bbdb-8f694812406c" name="Changes" comment="" />
+    <list default="true" id="416ac8b3-02ad-4a61-bbdb-8f694812406c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/ClassicMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/ClassicMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/RockMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/RockMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/objects/TestSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/objects/TestSpring.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,6 +94,7 @@
       <workItem from="1646949274549" duration="1612000" />
       <workItem from="1647001708805" duration="3994000" />
       <workItem from="1647110221372" duration="3410000" />
+      <workItem from="1647173490414" duration="3671000" />
     </task>
     <task id="LOCAL-00001" summary="работа с анотациями p1.">
       <created>1646950873457</created>
