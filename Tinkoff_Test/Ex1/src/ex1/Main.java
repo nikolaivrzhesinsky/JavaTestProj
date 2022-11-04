@@ -3,6 +3,9 @@ package ex1;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -15,18 +18,33 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try(BufferedReader reader= new BufferedReader(new InputStreamReader(System.in))){
-
-            input1= (reader.readLine());
-            input2= (reader.readLine());
+        List<String> numbers = new ArrayList(Arrays.asList("first", "second", "third"));
+        for (String number : numbers) {
+            if ("third".equals(number)) {
+                numbers.add("fourth");
+            }
         }
-        catch (IOException e){
+        System.out.println(numbers.size());
+
+
+
+        int a= Integer.MAX_VALUE;
+        int b= Integer.MAX_VALUE;
+        System.out.println(a+b);
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+
+            input1 = (reader.readLine());
+            input2 = (reader.readLine());
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         parseInput(input1);
         parseInput(input2);
 
-        System.out.println(getSquare(xMin,xMax,yMin,yMax));
+        System.out.println(getSquare(xMin, xMax, yMin, yMax));
+
+
     }
 
     public static void parseInput(String input){

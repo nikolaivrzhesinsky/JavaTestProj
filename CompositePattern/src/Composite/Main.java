@@ -4,13 +4,13 @@ package Composite;
 public class Main {
 
     public static void main(String[] args) {
-        ShapeComposite component1= new Circle();
-        ShapeComposite component2= new Square();
-        ShapeComposite component3= new Triangle();
+        ShapeComponent component1= new Circle();
+        ShapeComponent component2= new Square();
+        ShapeComponent component3= new Triangle();
 
-        Composite composite1= new Composite();
-        Composite composite2= new Composite();
-        Composite composite3= new Composite();
+        Component composite1= new Component();
+        Component composite2= new Component();
+        Component composite3= new Component();
 
         composite1.addComponent(composite2);
         composite1.addComponent(composite3);

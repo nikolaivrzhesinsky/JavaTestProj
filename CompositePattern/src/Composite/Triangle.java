@@ -1,6 +1,6 @@
 package Composite;
 
-public class Triangle implements ShapeComposite{
+public class Triangle implements ShapeComponent {
 
     @Override
     public void draw() {

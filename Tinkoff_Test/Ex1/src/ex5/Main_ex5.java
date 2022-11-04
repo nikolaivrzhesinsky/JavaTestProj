@@ -1,10 +1,12 @@
 package ex5;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Main_ex5 {
@@ -19,6 +21,7 @@ public class Main_ex5 {
 
     public static void main(String[] args) {
 
+        addList();
         try(BufferedReader reader= new BufferedReader(new InputStreamReader(System.in))){
 
             num1= (reader.readLine());
@@ -39,11 +42,12 @@ public class Main_ex5 {
            sortArrLibrary=Arrays.copyOf(LibraryToArr,LibraryToArr.length);
            Arrays.sort(sortArrLibrary);
         }
-        catch (IOException e){
+        catch (IOException e ){
             System.out.println(e.getMessage());
         }
 
         getPrefixPos(LibraryToArr,sortArrLibrary,arrWords);
+
     }
 
     public static void getPrefixPos(String[]LibraryToArr,
@@ -87,14 +91,25 @@ public class Main_ex5 {
                     }
                 }
             }
-
-
-
-
-
-
         }
+    }
 
+    static void foo(){
+
+        System.out.println("1111");
+    }
+
+    static void foo(int a){
+
+        System.out.println("2222");
+    }
+
+    static void addList(){
+
+        List<Integer> list= new ArrayList<>(10);
+        for(int i=0;i<11;i++){
+            list.add(i);
+        }
 
     }
 }

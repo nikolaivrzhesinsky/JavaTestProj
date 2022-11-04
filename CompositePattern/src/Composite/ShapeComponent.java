@@ -1,5 +1,5 @@
 package Composite;
 
-public interface ShapeComposite {
+public interface ShapeComponent {
     void draw();
 }
