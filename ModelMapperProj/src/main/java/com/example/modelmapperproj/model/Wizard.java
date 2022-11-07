@@ -1,16 +1,14 @@
 package com.example.modelmapperproj.model;
 
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Setter
+@Getter
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "wizards")
