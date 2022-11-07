@@ -25,9 +25,9 @@ public class WizardMapper extends AbstractMapper<Wizard, WizardDTO> {
 
     @PostConstruct
     public void setupMapper(){
-        mapper.createTypeMap(Wizard.class,WizardDTO.class)
+        modelMapper.createTypeMap(Wizard.class,WizardDTO.class)
                 .addMappings(m->m.skip(WizardDTO::setUnicornId)).setConverter(toDtoConverter());
-        mapper.createTypeMap(WizardDTO.class,Wizard.class)
+        modelMapper.createTypeMap(WizardDTO.class,Wizard.class)
                 .addMappings(m->m.skip(Wizard::setUnicorn)).setPostConverter(toEntityConverter());
     }
 
@@ -39,6 +39,11 @@ public class WizardMapper extends AbstractMapper<Wizard, WizardDTO> {
     private Long getId(Wizard source) {
         return Objects.isNull(source) || Objects.isNull(source.getId()) ? null
                 : source.getUnicorn().getId();
+    }
+
+    @Override
+    void mapSpecificFields(WizardDTO source, Wizard destination) {
+        destination.setUnicorn(unicornRepository.findById(source.getUnicornId()).orElse(null));
     }
 
 }
