@@ -18,4 +18,6 @@ public class WizardDTO extends AbstractDTO{
     private List<SlavesDTO> slavesDTOList;
     private Long unicornId;
     private Boolean alive;
+
+
 }

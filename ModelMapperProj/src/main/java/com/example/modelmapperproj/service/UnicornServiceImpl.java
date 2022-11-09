@@ -26,6 +26,6 @@ public class UnicornServiceImpl implements UnicornService {
 
     @Override
     public UnicornDTO get(Long id) {
-        return mapper.toDto(repository.getById(id));
+        return mapper.toDto(repository.getReferenceById(id));
     }
 }

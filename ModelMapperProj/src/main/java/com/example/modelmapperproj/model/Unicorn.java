@@ -6,6 +6,7 @@ import lombok.*;
 import lombok.extern.apachecommons.CommonsLog;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -27,4 +28,8 @@ public class Unicorn extends AbstractEntity {
     @Column(name="color")
     private Color color;
 
+    public Unicorn( String name, Color color) {
+        this.name = name;
+        this.color = color;
+    }
 }

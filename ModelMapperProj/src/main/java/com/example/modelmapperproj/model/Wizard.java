@@ -20,7 +20,7 @@ public class Wizard extends AbstractEntity{
     private String name;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "unicorn_id")
+    @JoinColumn(name = "unicorn_id", nullable = false)
     private Unicorn unicorn;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "wizard")
@@ -29,14 +29,16 @@ public class Wizard extends AbstractEntity{
     @Column(name="alive")
     private Boolean alive;
 
-    public Wizard(Long id, String name, Unicorn unicorn, Boolean alive) {
+    public Wizard(String name, Unicorn unicorn, Boolean alive) {
         this.name = name;
         this.unicorn = unicorn;
         this.alive = alive;
     }
 
-    public Wizard(Long id, String name, Boolean alive) {
+    public Wizard(String name, Boolean alive) {
         this.name = name;
         this.alive = alive;
     }
+
+
 }

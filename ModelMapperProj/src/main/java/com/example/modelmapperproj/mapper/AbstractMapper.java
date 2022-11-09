@@ -14,8 +14,8 @@ public abstract class AbstractMapper<E extends AbstractEntity, D extends Abstrac
     @Autowired
     ModelMapper mapper;
 
-    private Class<E> entityClass;
-    private Class<D> dtoClass;
+    private final Class<E> entityClass;
+    private final Class<D> dtoClass;
 
     AbstractMapper(Class<E> entityClass, Class<D> dtoClass) {
         this.entityClass = entityClass;
@@ -23,34 +23,34 @@ public abstract class AbstractMapper<E extends AbstractEntity, D extends Abstrac
     }
 
     @Override
-    public E toEntity(D dto){
+    public E toEntity(D dto) {
         return Objects.isNull(dto)
-                ?null: mapper.map(dto,entityClass);
+                ? null
+                : mapper.map(dto, entityClass);
     }
 
     @Override
-    public D toDto(E entity){
+    public D toDto(E entity) {
         return Objects.isNull(entity)
-                ?null: mapper.map(entity,dtoClass);
+                ? null
+                : mapper.map(entity, dtoClass);
     }
 
-    Converter<D,E> toEntityConverter(){
-
-        return mappingContext -> {
-            D source= mappingContext.getSource();
-            E destination= mappingContext.getDestination();
+    Converter<E, D> toDtoConverter() {
+        return context -> {
+            E source = context.getSource();
+            D destination = context.getDestination();
             mapSpecificFields(source, destination);
-            return mappingContext.getDestination();
+            return context.getDestination();
         };
     }
 
-    Converter<E,D> toDtoConverter(){
-
-        return mappingContext -> {
-            E source= mappingContext.getSource();
-            D destination= mappingContext.getDestination();
-            mapSpecificFields(source,destination);
-            return mappingContext.getDestination();
+    Converter<D, E> toEntityConverter() {
+        return context -> {
+            D source = context.getSource();
+            E destination = context.getDestination();
+            mapSpecificFields(source, destination);
+            return context.getDestination();
         };
     }
 
@@ -59,7 +59,4 @@ public abstract class AbstractMapper<E extends AbstractEntity, D extends Abstrac
 
     void mapSpecificFields(D source, E destination) {
     }
-
-
-
 }

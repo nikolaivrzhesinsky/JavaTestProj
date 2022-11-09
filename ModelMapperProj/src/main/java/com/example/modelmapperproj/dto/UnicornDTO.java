@@ -16,4 +16,6 @@ public class UnicornDTO extends AbstractDTO {
     private  String name;
     private List<WizardDTO> wizardDTOList;
     private String color;
+
+
 }

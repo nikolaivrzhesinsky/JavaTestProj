@@ -15,8 +15,8 @@ public class SlavesMapper extends AbstractMapper<Slaves, SlavesDTO>{
     private final ModelMapper mapper;
     private final WizardRepository wizardRepository;
 
-    SlavesMapper(Class<Slaves> entityClass, Class<SlavesDTO> dtoClass, ModelMapper mapper, WizardRepository wizardRepository) {
-        super(entityClass, dtoClass);
+    SlavesMapper(ModelMapper mapper, WizardRepository wizardRepository) {
+        super(Slaves.class, SlavesDTO.class);
         this.mapper = mapper;
         this.wizardRepository = wizardRepository;
     }
