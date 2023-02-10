@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-
 public class TestRabbitSpringApplication {
 
     public static void main(String[] args) {

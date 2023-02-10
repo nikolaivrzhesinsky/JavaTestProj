@@ -19,7 +19,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.util.ErrorHandler;
 
-@Primary
 @Slf4j
 @EnableRabbit
 @Configuration
@@ -73,7 +72,11 @@ public class RabbitConfiguration {
     public AmqpAdmin amqpAdmin() {
         return new RabbitAdmin(connectionFactory());
     }
-    @Primary
+//    @Bean
+//    public RabbitTemplate rabbitTemplate() {
+//        return new RabbitTemplate(connectionFactory());
+//    }
+
     @Bean
     public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
