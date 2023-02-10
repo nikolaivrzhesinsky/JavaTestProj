@@ -1,12 +1,11 @@
 package com.example.testrabbitspring;
 
-import com.example.testrabbitspring.config.RabbitConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
+@EnableAutoConfiguration(exclude = {org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration.class})
 public class TestRabbitSpringApplication {
 
     public static void main(String[] args) {

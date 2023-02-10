@@ -1,4 +1,4 @@
-package com.example.testrabbitspring.config;
+package com.example.testrabbitspring.rabbitmq;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,6 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.util.ErrorHandler;
 
 @Slf4j
@@ -24,11 +23,11 @@ import org.springframework.util.ErrorHandler;
 @Configuration
 public class RabbitConfiguration {
 
-    @Value("${spring.rabbitmq.queue}")
+    @Value("${spring.rabbitmq.template.default-receive-queue}")
     private String queueName;
-    @Value("${spring.rabbitmq.exchange}")
+    @Value("${spring.rabbitmq.template.exchange}")
     private String exchange;
-    @Value("${spring.rabbitmq.routingkey}")
+    @Value("${spring.rabbitmq.template.routing-key}")
     private String routingkey;
     @Value("${spring.rabbitmq.username}")
     private String username;
@@ -43,19 +42,22 @@ public class RabbitConfiguration {
     public Queue queue() {
         return new Queue(queueName, false);
     }
-    @Bean
-    public DirectExchange exchange() {
-        return new DirectExchange(exchange);
-    }
-    @Bean
-    public Binding binding(Queue queue,DirectExchange exchange){
-        return BindingBuilder.bind(queue).to(exchange)
-                .with(routingkey);
-    }
-    @Bean
-    public MessageConverter jsonMessageConverter(){
 
-        ObjectMapper objectMapper=new ObjectMapper();
+    @Bean
+    public FanoutExchange exchange() {
+        return new FanoutExchange(exchange);
+    }
+
+    @Bean
+    public Binding binding(Queue queue, FanoutExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange);
+        //.with(routingkey);
+    }
+
+    @Bean
+    public MessageConverter jsonMessageConverter() {
+
+        ObjectMapper objectMapper = new ObjectMapper();
         return new Jackson2JsonMessageConverter(objectMapper);
     }
     @Bean
@@ -72,20 +74,18 @@ public class RabbitConfiguration {
     public AmqpAdmin amqpAdmin() {
         return new RabbitAdmin(connectionFactory());
     }
-//    @Bean
-//    public RabbitTemplate rabbitTemplate() {
-//        return new RabbitTemplate(connectionFactory());
-//    }
 
     @Bean
-    public AmqpTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         final RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory);
         rabbitTemplate.setDefaultReceiveQueue(queueName);
         rabbitTemplate.setMessageConverter(jsonMessageConverter());
         rabbitTemplate.setReplyAddress(queue().getName());
         rabbitTemplate.setUseDirectReplyToContainer(false);
+        log.info("rabbitTemplate complete");
         return rabbitTemplate;
     }
+
     @Bean
     public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
         final SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
