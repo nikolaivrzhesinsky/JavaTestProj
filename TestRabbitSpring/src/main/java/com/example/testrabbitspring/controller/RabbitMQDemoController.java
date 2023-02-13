@@ -1,22 +1,18 @@
 package com.example.testrabbitspring.controller;
 
 import com.example.testrabbitspring.rabbitmq.RabbitMQSender;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/rabbitmq")
 public class RabbitMQDemoController {
 
     private final RabbitMQSender rabbitMQSender;
-
-    @Autowired
-    public RabbitMQDemoController(RabbitMQSender rabbitMQSender) {
-        this.rabbitMQSender = rabbitMQSender;
-    }
 
     @PostMapping(value = "/sender")
     public String producer() {
@@ -25,7 +21,7 @@ public class RabbitMQDemoController {
     }
 
     @PostMapping(value = "/sender_gl")
-    public String producer_gl() {
+    public String producerGL() {
         rabbitMQSender.sendGlobal();
         return "Message sent to the RabbitMQ Queue Successfully";
     }

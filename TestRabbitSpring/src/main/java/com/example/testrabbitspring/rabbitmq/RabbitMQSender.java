@@ -1,20 +1,16 @@
 package com.example.testrabbitspring.rabbitmq;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class RabbitMQSender {
 
     private final RabbitTemplate rabbitTemplate;
-
-    @Autowired
-    public RabbitMQSender(RabbitTemplate rabbitTemplate) {
-        this.rabbitTemplate = rabbitTemplate;
-    }
 
     public void send() {
         rabbitTemplate.setExchange("Ground Control");
